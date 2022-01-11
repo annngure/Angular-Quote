@@ -8,9 +8,9 @@ import { Quotes} from '../quotes';
 })
 export class QuoteComponent implements OnInit {
   quotes:Quotes[]=[
-  new Quotes(1,new Date (2021,12,17),"Carol","Captain J Sparrow","The problem is not the problem.The problemis your attitude about the problem.",50,10),
-  new Quotes(2, new Date (2021,12,19),"Mark","Brian Tracy","To see what is right and not do it is a lack of courage.",70,30),
-  new Quotes(3,new Date (2021,12,19),"Joses","Albert Einstien","The only reason for time is so that everything does not happen at once.",20,40),
+  new Quotes(0,new Date (2021,12,17),"Carol","Captain J Sparrow","The problem is not the problem.The problemis your attitude about the problem.",50,10),
+  new Quotes(1, new Date (2021,12,19),"Mark","Brian Tracy","To see what is right and not do it is a lack of courage.",70,30),
+  new Quotes(2,new Date (2021,12,19),"Joses","Albert Einstien","The only reason for time is so that everything does not happen at once.",20,40),
   ];
   
   getQuotes(){
