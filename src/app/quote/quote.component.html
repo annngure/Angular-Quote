@@ -39,13 +39,13 @@
                 <button type="button" id="dislikes" class="btn btn-sm btn-dark" (click)='downvote(i)'><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" style="fill: rgba(248, 81, 73, 1);transform: msFilter;"><path d="m18.707 12.707-1.414-1.414L13 15.586V6h-2v9.586l-4.293-4.293-1.414 1.414L12 19.414z"></path></svg> ( {{quote.dislikes}} )</button>
                 <button type="button" id="trash" class="btn btn-sm btn-danger" (click)='deleteQuote(quote)'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" style="fill: rgba(255, 255, 255, 1);transform: msFilter;"><path d="M5 20a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8h2V6h-4V4a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2H3v2h2zM9 4h6v2H9zM8 8h9v12H7V8z"></path><path d="M9 10h2v8H9zm4 0h2v8h-2z"></path></svg></button>
             </div>
-            <div class="col-md-6 col-xl-5 offset-xl-1">
-                <!--Form-->
-                <div class="card wow fadeInRight" data-wow-delay="0.3s">
-                  <app-form (emitQuote)="addQuote($event)"></app-form>
-                </div>
-                <!--/.Form-->
-              </div>
     </div>
     </div>
 </div>
+<div class="col-md-6 col-xl-5 offset-xl-1">
+    <!--Form-->
+    <div class="card wow fadeInRight" data-wow-delay="0.3s">
+        <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+    </div>
+    <!--/.Form-->
+  </div>

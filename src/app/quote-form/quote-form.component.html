@@ -10,24 +10,20 @@
   
     <div class="md-form">
       <i class="fas fa-user prefix white-text"></i>
-      <input type="text" id="form3" class="form-control " name="publisher" [(ngModel)]="postAuthor">
-      <label for="form3">Person's name</label>
+      <input type="text" required class="form-control" name="postAuthor" id="postAuthor" placeholder="Your Name" [(ngModel)]="newQuote.postAuthor" #postAuthor='ngModel' required>
     </div>
     <div class="md-form">
       <i class="fas fa-quote-left prefix white-text"></i>
-      <input type="text" id="form2" class="form-control" name="quote" [(ngModel)]="quoteWords" mdbInput>
-      <label for="form2">Quotes</label>
+      <textarea class="form-control" id="quoteDescription" rows="4" cols="50" placeholder="Quote" name="quoteDescription" [(ngModel)]="newQuote.quoteDescription" #quoteDescription='ngModel' required></textarea>
     </div>
   
     <div class="md-form">
       <i class="fas fa-user prefix white-text"></i>
-      <input type="text" id="form4" class="form-control" name="author" [(ngModel)]="quoteAuthor" mdbInput>
-      <label for="form4">Author</label>
+      <input type="text" required class="form-control" name="quoteAuthor" id="quoteAuthor" placeholder="Quote Author" [(ngModel)]="newQuote.quoteAuthor" #quoteAuthor='ngModel' required>
     </div>
     <div class="md-form">
       <i class="far fa-clock prefix white-text"></i>
-      <input type='date' id="form5" class="form-control white-text" name="completeDate" [(ngModel)]="quoteDate" mdbInput>
-      <label class=" white-text" for="form5">Completion Date</label>
+      <input type='date' id="form5" required class="form-control" name="datePosted" id ="datePosted"  placeholder="date" [(ngModel)]="newQuote.datePosted" #datePosted='ngModel' required>
       </div>
       <div class="text-center">
         <button type="submit" mdbBtn color="indigo" class="waves-light btn btn-info" mdbWavesEffect>Post Quote</button>
