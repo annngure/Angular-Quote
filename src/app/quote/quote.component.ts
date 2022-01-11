@@ -13,29 +13,62 @@ export class QuoteComponent implements OnInit {
   new Quotes(3,new Date (2021,12,19),"Joses","Albert Einstien","The only reason for time is so that everything does not happen at once.",20,40),
   ];
   
-  get sortQuotes() {
-    return this.quotes.sort((a, b) => {
-      return <any>new Date(b.datePosted) - <any>new Date(a.datePosted);
-    });
-  }  
-  addedQuote(quote: Quotes){
-    let arraysize = this.quotes.length;
-    quote.id = arraysize+1;
-    this.quotes.push(quote)
+  getQuotes(){
+    return this.quotes;
   }
-  quoteDelete(isRead: any, index: number){
-    if (isRead) {
-      let toDelete = confirm(`Are you sure you want to delete this Quote?`)
-      if(toDelete){
-        this.quotes.splice(index,1);
+
+  upvote(index:any) {
+    this.quotes[index].likes ++;
+  }
+  downvote(index:any) {
+    this.quotes[index].dislikes  ++;
+  }
+
+  initialLikes!: number;
+  pressedLikes!: number;
+  finalQuoteLikes!: number;
+  index!: number;
+
+  rankQuotes(){
+    this.initialLikes = 0
+    this.pressedLikes = 0
+
+    for(this.index=0 ; this.index < this.quotes.length; this.index++) {
+      this.pressedLikes = this.quotes[this.index].likes;
+      if(this.pressedLikes > this.initialLikes){
+        this.initialLikes = this.pressedLikes;
+        this.finalQuoteLikes = this.initialLikes;
       }
-      
     }
+    return this.finalQuoteLikes
   }
- 
+
+  toggleDetails(index: any){
+    this.quotes[index].showDetails = !this.quotes[index].showDetails;
+  }
+
+  deleteQuote(quote:any){
+    if(this.getQuotes().indexOf(quote)>= 0){
+        let toDelete = confirm(`Are you sure you want to delete the quote '${this.quotes[this.quotes.indexOf(quote)].quoteDescription}' by ${this.quotes[this.quotes.indexOf(quote)].quoteAuthor}?`)
+        if(toDelete){
+            this.getQuotes().splice(this.getQuotes().indexOf(quote),1);
+        }
+    }
+    this.rankQuotes();
+  }
+
+  addNewQuote(quotes: any){
+    let quoteLength = this.quotes.length;
+    quotes.id = quoteLength + 1;
+    quotes.datePosted = new Date(quotes.datePosted);
+    this.quotes.push(quotes);
+    let confirmation = confirm(`Quote Added Successfully!`);
+    return confirmation;
+  }
+
   constructor() { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
 }

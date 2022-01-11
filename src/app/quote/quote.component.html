@@ -11,6 +11,17 @@
 </div>
 <div class="quote-section">
     <div class="row">
-    
+    <div *ngFor="let quote of quotes; let i = index">
+        <div class="col-sm-12 text-center">
+            <div class="card" style="width: 21rem;" *ngIf="rankQuotes()==quote.likes && quote.likes>0" appQuoteHighlight>
+                <p class="card-text">{{quote.quoteDescription}}</p>
+                <p class="card-text">~ {{quote.quoteAuthor}} </p>
+             </div>
+             
+             <div class="footer text-center">
+                 <app-quote-details *ngIf="quote.showDetails" [quote]="quote"></app-quote-details>
+             </div>
+         </div>       
+    </div>
     </div>
 </div>
